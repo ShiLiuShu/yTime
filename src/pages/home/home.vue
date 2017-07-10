@@ -1,6 +1,8 @@
 <template>
   <div class="home-root">
       <p v-if="mainPageMovies.length">there are {{mainPageMovies.length}} movies</p>
+      <p v-if="hotPoints.length">{{hotPoints.length}}</p>
+      <p v-if="topPosters.length">{{topPosters.length}}</p>
   </div>
 </template>
 
@@ -15,18 +17,21 @@ export default {
       }
   },
   computed:{
-      ...mapGetters(['mainPageMovies','locationId'])
+      ...mapGetters(['mainPageMovies','locationId','hotPoints','topPosters'])
+  },
+  methods:{
+    ...mapActions(['setLocation','getMainPageMovies','getFirstPageAdvAndNews'])
   },
   created(){
       //同步设置区域id
-      this.$store.dispatch('setLocation',{
+      this.setLocation({
           locationId:290
-      })
+      });
       //异步获取热映电影数据
-      this.$store.dispatch('getMainPageMovies',{
+      this.getMainPageMovies({
           locationId:this.locationId
       });
-      console.log("exx");
+      this.getFirstPageAdvAndNews();
   }
 }
 </script>

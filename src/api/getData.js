@@ -16,10 +16,14 @@ function fetch(url,methods,params){
 }
 
 
-const fetchMainPageMovies=(id)=>{
+const fetchMainPageMovies=id=>{
     return fetch('/PageSubArea/HotPlayMovies.api?locationId='+id);
 }
 
+const fetchFirstPageAdvAndNews=()=>{
+    return fetch('/PageSubArea/GetFirstPageAdvAndNews.api');
+}
+
 export default{
-    fetchMainPageMovies
+    fetchMainPageMovies,fetchFirstPageAdvAndNews
 }
