@@ -25,6 +25,7 @@ export default {
           nextButton:'.swiper-button-next',
           mousewheelControl:true,
           paginationClickable:true,
+          autoplayDisableOnInteraction :false,
           scrollbar:null,
           onSlideChangeEnd: swiper => {
             console.log('onSlideChangeEnd', swiper.realIndex)
