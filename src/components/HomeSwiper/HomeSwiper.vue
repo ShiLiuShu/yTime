@@ -4,7 +4,7 @@
             <div class="swiper-slide" v-for="img in imgList" :key="img.gotoPage.parameters.newId">
                 <img :src="img.img">
             </div>
-            <div class="swiper-pagination"  slot="pagination"></div>
+            <div class="swiper-pagination swiper-pagination-white"  slot="pagination"></div>
             <div class="swiper-button-prev" slot="button-prev"></div>
             <div class="swiper-button-next" slot="button-next"></div>
             <div class="swiper-scrollbar"   slot="scrollbar"></div>
@@ -20,7 +20,6 @@ export default {
       return {
         swiperOption: {
           autoplay: 5000,
-          initialSlide: 1,
           pagination: '.swiper-pagination',
           prevButton:'.swiper-button-prev',
           nextButton:'.swiper-button-next',
