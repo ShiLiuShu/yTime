@@ -9,11 +9,13 @@
             <div class="swiper-button-next" slot="button-next"></div>
             <div class="swiper-scrollbar"   slot="scrollbar"></div>
         </swiper>
+        <home-search></home-search>
     </div>
 </template>
 
 <script>
 import {swiper,swiperSlide} from 'vue-awesome-swiper'
+import HomeSearch from '../HomeSearch/HomeSearch.vue'
 
 export default {
   data(){
@@ -41,7 +43,8 @@ export default {
   props:['imgList'],
   components:{
       swiper,
-      swiperSlide
+      swiperSlide,
+      HomeSearch
   },
 }
 </script>

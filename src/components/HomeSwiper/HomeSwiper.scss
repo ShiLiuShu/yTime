@@ -1,9 +1,14 @@
 .home-swiper-root{
+    position: relative;
     width:100%;
-    overflow: auto;
     img{
     display: block;
     width: 100%;
+    }
+
+
+    .swiper-container-horizontal > .swiper-pagination-bullets{
+        bottom:1.2rem !important;
     }
 }
 

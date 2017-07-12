@@ -4,6 +4,7 @@
       <p v-if="hotPoints.length">{{hotPoints.length}}</p>
       <p v-if="topPosters.length">{{topPosters.length}}</p>
       <home-swiper :imgList="topPosters" v-if="topPosters.length"></home-swiper>
+      
   </div>
 </template>
 
@@ -11,6 +12,7 @@
 
 import {mapGetters,mapActions} from 'vuex'
 import HomeSwiper from '../../components/HomeSwiper/HomeSwiper.vue'
+
 
 export default {
   data(){
