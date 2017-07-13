@@ -20,7 +20,7 @@ const getters={
 const actions={
     async getMainPageMovies({commit},payload){
         let data=await getData.fetchMainPageMovies(payload.locationId);
-        commit(types.GET_MAINPAGEMOVIES,data.data.movies);
+        commit(types.GET_MAINPAGEMOVIES,data.data.movies);       
     },
 
     setLocation({commit},payload){
