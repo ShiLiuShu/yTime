@@ -3,31 +3,36 @@ const topNavData=[
         title:'精选',
         img:require('../assets/top-nav/like.png'),
         active:true,
-        foreColor:"orange"
+        foreColor:"orange",
+        router:'select'
     },
     {
         title:'资讯',
         img:require('../assets/top-nav/form.png'),
         active:false,
-        foreColor:"red"
+        foreColor:"red",
+        router:'info'
     },
     {
         title:'选电影',
         img:require('../assets/top-nav/video.png'),
         active:false,
-        foreColor:"blue"
+        foreColor:"blue",
+        router:'movie'
     },
     {
         title:'预告片',
         img:require('../assets/top-nav/yugaopian.png'),
         active:false,
-        foreColor:"yellow"
+        foreColor:"yellow",
+        router:'yugaopian'
     },
     {
         title:'影评',
         img:require('../assets/top-nav/comments.png'),
         active:false,
-        foreColor:"green"
+        foreColor:"green",
+        router:'comments'
     }
 ];
 

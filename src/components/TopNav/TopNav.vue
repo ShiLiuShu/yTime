@@ -34,6 +34,7 @@ export default {
             this.topNavData[i]['active']=false;
         }
         this.topNavData[index]['active']=true;
+        this.$router.push('/home/'+this.topNavData[index]['router']);
       }
   }
 }
