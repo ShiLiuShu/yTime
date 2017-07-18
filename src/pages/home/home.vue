@@ -13,6 +13,7 @@
           </div>
       </div>
       <hot-gallery :movies="mainPageMovies" v-if="mainPageMovies.length"></hot-gallery>
+      <top-nav></top-nav>
   </div>
 </template>
 
@@ -21,6 +22,7 @@
 import {mapGetters,mapActions} from 'vuex'
 import HomeSwiper from '../../components/HomeSwiper/HomeSwiper.vue'
 import HotGallery from '../../components/HotGallery/HotGallery.vue'
+import TopNav from '../../components/TopNav/TopNav.vue'
 
 
 export default {
@@ -37,7 +39,8 @@ export default {
   },
   components:{
     HomeSwiper,
-    HotGallery
+    HotGallery,
+    TopNav
   },
   created(){
       //同步设置区域id
