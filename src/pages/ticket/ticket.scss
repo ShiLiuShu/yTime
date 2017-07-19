@@ -1,0 +1,36 @@
+.ticket-root{
+    background-color:rgb(28, 38, 53);
+    .ticket-head{
+        .ticket-head-top{
+            padding:.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:white;
+            .item-img-left{               
+                display: flex;
+                align-items: center;
+                img{
+                    margin-left:.4rem;
+                    display: block;
+                    width:.8rem;
+                }
+                width:4rem;
+            }
+            .item-swap{
+                flex-grow: 2;
+                display: flex;
+                justify-content: center;
+            }
+            .item-img-right{
+                img{
+                    display:block;
+                    width:1rem;
+                    float:right;
+                }
+                width:4rem;
+            }
+        }
+
+    }
+}

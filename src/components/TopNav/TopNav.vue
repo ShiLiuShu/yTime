@@ -10,7 +10,7 @@
               <p v-else>{{item.title}}</p>
           </div>
           <div class='top-nav-item-bottom' v-show='item.active' :style='{backgroundColor:item.foreColor}'>
-
+            
           </div>
       </div>
   </div>
