@@ -12,6 +12,8 @@
           </div>
       </div>
       <hot-gallery :movies="mainPageMovies" v-if="mainPageMovies.length"></hot-gallery>
+      <Divider></Divider>
+      <home-live></home-live>
   </div>
 </template>
 <script>
@@ -19,6 +21,8 @@ import {mapGetters,mapActions} from 'vuex'
 import HomeSwiper from '../../components/HomeSwiper/HomeSwiper.vue'
 import HotGallery from '../../components/HotGallery/HotGallery.vue'
 import TopNav from '../../components/TopNav/TopNav.vue'
+import Divider from '../../components/Divider/Divider.vue'
+import HomeLive from '../../components/HomeLive/HomeLive.vue'
 
 export default {
   data(){
@@ -35,7 +39,9 @@ export default {
   components:{
     HomeSwiper,
     HotGallery,
-    TopNav
+    TopNav,
+    Divider,
+    HomeLive
   },
   created(){
       //同步设置区域id

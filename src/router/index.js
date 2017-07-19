@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import home from '../pages/home/home.vue'
 import HomeSelect from '../pages/HomeSelect/HomeSelect.vue'
 import HomeInfo from '../pages/HomeInfo/HomeInfo.vue'
+import ticket from '../pages/ticket/ticket.vue'
 
 Vue.use(Router)
 
@@ -27,6 +28,11 @@ export default new Router({
     {
       path:'/',
       redirect:'/home'
+    },
+    {
+      path:'/ticket',
+      name:'ticket',
+      component:ticket
     }
   ]
 })

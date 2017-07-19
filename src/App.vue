@@ -1,12 +1,17 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <foot-nav></foot-nav>
   </div>
 </template>
 
 <script>
+import FootNav from './components/FootNav/FootNav.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  components:{
+    FootNav
+  }
 }
 </script>
 
@@ -23,5 +28,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
 }
 </style>
