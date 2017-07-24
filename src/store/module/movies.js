@@ -6,14 +6,16 @@ const state={
     locationId:0,
     mainPageMovies:[],
     hotPoints:[],
-    topPosters:[]
+    topPosters:[],
+    isHotMovies:[]
 }
 
 const getters={
     locationId:state=>state.locationId,
     mainPageMovies:state=>state.mainPageMovies,
     hotPoints:state=>state.hotPoints,
-    topPosters:state=>state.topPosters
+    topPosters:state=>state.topPosters,
+    isHotMovies:state=>state.isHotMovies
 }
 
 
@@ -30,6 +32,11 @@ const actions={
     async getFirstPageAdvAndNews({commit}){
         let data=await getData.fetchFirstPageAdvAndNews();
         commit(types.GET_FIRSTPAGEADVANDNEWS,data.data);
+    },
+
+    async getIsHotMovies({commit},payload){
+        let data=await getData.fetchIsHotMovies(payload.locationId);
+        commit(types.GET_ISHOTMOVIES,data.data.ms);
     }
 }
 
@@ -44,6 +51,9 @@ const mutations={
     [types.GET_FIRSTPAGEADVANDNEWS](state,firstPageData){
         state.hotPoints=firstPageData.hotPoints;
         state.topPosters=firstPageData.topPosters;
+    },
+    [types.GET_ISHOTMOVIES](state,isHotMovies){
+        state.isHotMovies=isHotMovies;
     }
 
 }

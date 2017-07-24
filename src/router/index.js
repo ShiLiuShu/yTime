@@ -4,6 +4,9 @@ import home from '../pages/home/home.vue'
 import HomeSelect from '../pages/HomeSelect/HomeSelect.vue'
 import HomeInfo from '../pages/HomeInfo/HomeInfo.vue'
 import ticket from '../pages/ticket/ticket.vue'
+import TicketHot from '../pages/TicketHot/TicketHot.vue'
+import TicketComing from '../pages/TicketComing/TicketComing.vue'
+
 
 Vue.use(Router)
 
@@ -26,13 +29,23 @@ export default new Router({
       ]
     },
     {
-      path:'/',
-      redirect:'/home'
+      path: '/ticket',
+      component: ticket,
+      redirect:'/ticket/hot',
+      children:[
+        {
+          path:'hot',
+          component:TicketHot
+        },
+        {
+          path:'coming',
+          component:TicketComing
+        }
+      ]
     },
     {
-      path:'/ticket',
-      name:'ticket',
-      component:ticket
+      path:'/',
+      redirect:'/home'
     }
   ]
 })

@@ -14,17 +14,51 @@
                   <img src="../../assets/search.png">
               </div>
           </div>
-          <div class="ticket-head-bottom"></div>
+          <div class="ticket-head-bottom">
+              <div class="ticket-head-bottom-left" :class="{active:leftActive}" @click="clickIsHot">
+                  <p>正在热映</p>
+              </div>
+              <div class="ticket-head-bottom-right" :class="{active:rightActive}" @click="clickIsComing">
+                  <p>即将上映</p>
+              </div>
+          </div>
       </div>
-  </div>
+      <router-view></router-view>
+  </div> 
 </template>
 
 <script>
 export default {
   data(){
       return {
-        
+        leftActive:false,
+        rightActive:false
+
       }
+  },
+  computed:{
+    
+  },
+  methods:{
+      
+      clickIsHot(){
+        this.leftActive=true;
+        this.rightActive=false;
+        this.$router.push('/ticket/hot');
+      },
+      clickIsComing(){
+        this.leftActive=false;
+        this.rightActive=true;
+        this.$router.push('/ticket/coming');
+      }
+  },
+  created(){
+    this.leftActive=true;
+    //this.$router.push('/ticket/isHot');
+  },
+  mounted()
+  {   
+
   }
 }
 </script>

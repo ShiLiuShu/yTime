@@ -1,0 +1,38 @@
+.ticket-hot-root{
+    .ticket-hot-item{
+        display:flex;
+        margin-left:.4rem;
+        border-bottom:solid .03rem gray;
+
+        .image{
+            padding:.4rem .3rem .4rem 0;
+            margin-right:.2rem;
+            img{
+                display: block;
+                height:5rem;
+                width:3.2rem;
+            }
+        }
+
+        .content{
+            padding:.4rem 0;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            p{
+                font-size:.6rem;
+                color:gray;
+            }
+
+            .title{
+                font-size:.8rem;
+                font-weight: 800;
+                color:black;
+            }
+            .special{
+                font-size:.7rem;
+                color:orangered;
+            }
+        }
+    }
+}

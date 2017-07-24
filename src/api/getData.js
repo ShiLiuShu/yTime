@@ -24,6 +24,10 @@ const fetchFirstPageAdvAndNews=()=>{
     return fetch('/PageSubArea/GetFirstPageAdvAndNews.api');
 }
 
+const fetchIsHotMovies=id=>{
+    return fetch('/Showtime/LocationMovies.api?locationId='+id);
+}
+
 export default{
-    fetchMainPageMovies,fetchFirstPageAdvAndNews
+    fetchMainPageMovies,fetchFirstPageAdvAndNews,fetchIsHotMovies
 }
