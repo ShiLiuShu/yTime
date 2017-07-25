@@ -3,7 +3,7 @@
         display:flex;
         margin-left:.4rem;
         border-bottom:solid .03rem gray;
-
+        position: relative;
         .image{
             padding:.4rem .3rem .4rem 0;
             margin-right:.2rem;
@@ -32,6 +32,59 @@
             .special{
                 font-size:.7rem;
                 color:orangered;
+            }
+            .tags{
+                display: flex;
+                margin-top:.2rem;
+                div{
+                    font-size:.4rem;
+                    border:solid .03rem gray;
+                    border-radius: .1rem;
+                    display: flex;
+                    align-items: center;
+                    margin-right: .1rem;
+                    padding:0 .2rem;
+                }
+            }
+        }
+
+        .rate{
+            font-size:.7rem;
+            font-weight: 600;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top:.3rem;
+            right:.4rem;
+            width:1.3rem;
+            height:1.3rem;
+        }
+
+        .isTicket{
+            position: absolute;
+            bottom:.4rem;
+            right:.2rem;
+            font-size:.8rem;
+            color:white;
+            
+            .ticket{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width:3rem;
+                height:1.5rem;
+                border-radius: 1rem;
+                background: orangered;
+            }
+            .noticket{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width:3rem;
+                height:1.5rem;
+                border-radius: 1rem;
+                background: rgb(101,157,14);
             }
         }
     }

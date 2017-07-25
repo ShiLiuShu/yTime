@@ -28,6 +28,10 @@ const fetchIsHotMovies=id=>{
     return fetch('/Showtime/LocationMovies.api?locationId='+id);
 }
 
+const fetchIsComingMovies=id=>{
+    return fetch('/Movie/MovieComingNew.api?locationId='+id);
+}
+
 export default{
-    fetchMainPageMovies,fetchFirstPageAdvAndNews,fetchIsHotMovies
+    fetchMainPageMovies,fetchFirstPageAdvAndNews,fetchIsHotMovies,fetchIsComingMovies
 }

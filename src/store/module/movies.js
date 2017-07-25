@@ -7,7 +7,9 @@ const state={
     mainPageMovies:[],
     hotPoints:[],
     topPosters:[],
-    isHotMovies:[]
+    isHotMovies:[],
+    isComingMovies:[],
+    isComingMoviesAttention:[]
 }
 
 const getters={
@@ -15,7 +17,9 @@ const getters={
     mainPageMovies:state=>state.mainPageMovies,
     hotPoints:state=>state.hotPoints,
     topPosters:state=>state.topPosters,
-    isHotMovies:state=>state.isHotMovies
+    isHotMovies:state=>state.isHotMovies,
+    isComingMoviesAttention:state=>state.isComingMoviesAttention,
+    isComingMovies:state=>state.isComingMovies
 }
 
 
@@ -37,6 +41,11 @@ const actions={
     async getIsHotMovies({commit},payload){
         let data=await getData.fetchIsHotMovies(payload.locationId);
         commit(types.GET_ISHOTMOVIES,data.data.ms);
+    },
+
+    async getIsComingMovies({commit},payload){
+        let data=await getData.fetchIsComingMovies(payload.locationId);
+        commit(types.GET_ISCOMINGMOVIES,data.data);
     }
 }
 
@@ -54,6 +63,10 @@ const mutations={
     },
     [types.GET_ISHOTMOVIES](state,isHotMovies){
         state.isHotMovies=isHotMovies;
+    },
+    [types.GET_ISCOMINGMOVIES](state,isComingMoviesData){
+        state.isComingMovies=isComingMoviesData.moviecomings;
+        state.isComingMoviesAttention=isComingMoviesData.attention;
     }
 
 }
