@@ -1,8 +1,8 @@
 <template>
   <div class="ticket-hot-root" v-if="isHotMovies.length">
-      <div class="ticket-hot-item"  v-for="movie in isHotMovies" :key="movie.id">
+      <div class="ticket-hot-item"  v-for="movie in isHotMovies" :key="movie.id" @click="gotoMovie(movie.id)">
           <div class="image">
-              <img :src="movie.img">
+              <img :src="movie.img" >
           </div>
           <div class="content">
               <p class="title">{{movie.tCn}}</p>
@@ -47,7 +47,11 @@ export default {
     });
   },
   methods:{
-    ...mapActions(['getIsHotMovies'])
+    ...mapActions(['getIsHotMovies']),
+    gotoMovie(id){
+        console.log(id);
+        this.$router.push({name:'movie',params:{movieId:id}});
+    }
   },
   computed:{
       ...mapGetters(['isHotMovies','locationId'])

@@ -3,5 +3,11 @@ export default{
     locationId:state=>state.movies.locationId,
     isHotMovies:state=>state.movies.isHotMovies,
     isComingMovies:state=>state.movies.isComingMovies,
-    isComingMoviesAttention:state=>state.movies.isComingMoviesAttention
+    isComingMoviesAttention:state=>state.movies.isComingMoviesAttention,
+
+    movieDetailBasic:state=>state.movieDetails.movieDetailBasic,
+    movieDetailLive:state=>state.movieDetails.movieDetailLive,
+    movieDetailAd:state=>state.movieDetails.movieDetailAd,
+    movieDetailRelated:state=>state.movieDetails.movieDetailRelated
+
 }

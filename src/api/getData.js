@@ -32,6 +32,11 @@ const fetchIsComingMovies=id=>{
     return fetch('/Movie/MovieComingNew.api?locationId='+id);
 }
 
+const fetchMovieDetail=(locationId,movieId)=>{
+    return fetch('/movie/detail.api?locationId='+locationId+'&movieId='+movieId);
+}
+
 export default{
-    fetchMainPageMovies,fetchFirstPageAdvAndNews,fetchIsHotMovies,fetchIsComingMovies
+    fetchMainPageMovies,fetchFirstPageAdvAndNews,fetchIsHotMovies,fetchIsComingMovies,
+    fetchMovieDetail
 }

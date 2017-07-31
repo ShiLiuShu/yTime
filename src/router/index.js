@@ -6,6 +6,7 @@ import HomeInfo from '../pages/HomeInfo/HomeInfo.vue'
 import ticket from '../pages/ticket/ticket.vue'
 import TicketHot from '../pages/TicketHot/TicketHot.vue'
 import TicketComing from '../pages/TicketComing/TicketComing.vue'
+import movie from '../pages/movie/movie.vue'
 
 
 Vue.use(Router)
@@ -42,6 +43,11 @@ export default new Router({
           component:TicketComing
         }
       ]
+    },
+    {
+      path:'/movie/:movieId',
+      name:'movie',
+      component:movie
     },
     {
       path:'/',

@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
 import movies from './module/movies'
+import movieDetails from './module/movieDetail'
 
 
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
     actions,
     getters,
     modules:{
-        movies
+        movies,
+        movieDetails
     }
 })
