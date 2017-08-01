@@ -1,6 +1,5 @@
 <template>
   <div class="movie-head-root">
-      this is the movie head..
   </div>
 </template>
 

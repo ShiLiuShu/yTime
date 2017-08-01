@@ -18,30 +18,6 @@ const getters={
 
 
 const actions={
-    async getMainPageMovies({commit},payload){
-        let data=await getData.fetchMainPageMovies(payload.locationId);
-        commit(types.GET_MAINPAGEMOVIES,data.data.movies);       
-    },
-
-    setLocation({commit},payload){
-        commit(types.SET_LOCATION,payload.locationId);
-    },
-
-    async getFirstPageAdvAndNews({commit}){
-        let data=await getData.fetchFirstPageAdvAndNews();
-        commit(types.GET_FIRSTPAGEADVANDNEWS,data.data);
-    },
-
-    async getIsHotMovies({commit},payload){
-        let data=await getData.fetchIsHotMovies(payload.locationId);
-        commit(types.GET_ISHOTMOVIES,data.data.ms);
-    },
-
-    async getIsComingMovies({commit},payload){
-        let data=await getData.fetchIsComingMovies(payload.locationId);
-        commit(types.GET_ISCOMINGMOVIES,data.data);
-    },
-
     async getMovieDetail({commit},payload){
         let data=await getData.fetchMovieDetail(payload.locationId,payload.movieId);
         commit(types.GET_MOVIEDETAIL,data.data.data);
@@ -57,6 +33,12 @@ const mutations={
         state.movieDetailAd=movieDetail.advertisement;
         state.movieDetailRelated=movieDetail.related;
         //console.log(state.movieDetail);
+    },
+    clearMovieDetail(state){
+        state.movieDetailBasic='';
+        state.movieDetailAd='';
+        state.movieDetailLive='';
+        state.movieDetailRelated='';
     }
 
 }
