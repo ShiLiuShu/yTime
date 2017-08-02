@@ -50,7 +50,7 @@ const mutations={
         state.movieDetailLive='';
         state.movieDetailRelated='';
         state.movieDetailBox='';
-        state.movieDetail.movieDetailHotComment='';
+        state.movieDetailHotComment='';
     }
 
 }

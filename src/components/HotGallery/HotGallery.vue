@@ -1,6 +1,6 @@
 <template>
   <div class="hot-gallery-root">
-      <div class="hot-gallery-item" v-for="movie in movies" :key="movie.movieId">
+      <div class="hot-gallery-item" v-for="movie in movies" :key="movie.movieId" @click="gotoMovie(movie.movieId)">
         <div class="hot-gallery-item-image">
             <img :src="movie.img">
             <div class="rating" v-if="movie.ratingFinal!=-1">
@@ -28,6 +28,12 @@ export default {
       return {
         
       }
+  },
+  methods:{
+      gotoMovie(id){
+        console.log(id);
+        this.$router.push({name:'movie',params:{movieId:id}});
+    }
   },
   props:['movies']
 }

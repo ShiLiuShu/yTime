@@ -2,7 +2,7 @@
   <div class="ticket-hot-root">
       <div class="title1"><p>最受关注</p></div>
       <div class="attention" v-if="isComingMoviesAttention.length">
-        <div class="attention-item" v-for="item in isComingMoviesAttention" :key="item.id">
+        <div class="attention-item" v-for="item in isComingMoviesAttention" :key="item.id" @click="gotoMovie(item.id)">
           <div class="date"><p>{{item.releaseDate}}</p></div>
           <div class="border"></div>          
           <div class="attention-image">
@@ -25,7 +25,7 @@
       <div class="title2" v-if="isComingMovies.length"><p>即将上映（{{isComingMovies.length}}部）</p></div>
       <div class="coming" v-if="isComingMovies.length">
         <div class="month">7月</div>
-        <div class="coming-item" v-for="item in isComingMovies" :key="item.id">
+        <div class="coming-item" v-for="item in isComingMovies" :key="item.id" @click="gotoMovie(item.id)">
           <div class="coming-item-day">
             <p>{{item.rDay}}日</p>
           </div>
@@ -70,7 +70,11 @@ export default {
     });
   },
   methods:{
-    ...mapActions(['getIsComingMovies'])
+    ...mapActions(['getIsComingMovies']),
+    gotoMovie(id){
+        console.log(id);
+        this.$router.push({name:'movie',params:{movieId:id}});
+    }
   },
   computed:{
       ...mapGetters(['isComingMovies','isComingMoviesAttention','locationId'])
