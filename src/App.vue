@@ -29,5 +29,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 
+  /* chrome浏览器下自动适应字体去掉 */
+  -webkit-text-size-adjust:none;
 }
 </style>

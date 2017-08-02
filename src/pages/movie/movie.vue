@@ -74,6 +74,140 @@
             </div>
         </div>
         <Divider v-if="movieDetailBasic"></Divider>
+        <div class="movie-file" v-if="movieDetailBasic">
+            <div class="movie-file-video">
+                <div class="file-title">
+                    <div class="first">视频</div>
+                    <div class="all">{{movieDetailBasic.video.count}}</div>
+                </div>
+                <div class="file-img">
+                    <div class="file-img-divider"></div>
+                    <img :src="movieDetailBasic.video.img" >
+                </div>
+            </div>
+            <div class="movie-file-image">
+                <div class="file-title">
+                    <div class="first">图片</div>
+                    <div class="all">{{movieDetailBasic.stageImg.count}}</div>
+                </div>
+                <div class="file-img">
+                    <img :src="movieDetailBasic.stageImg.list[0].imgUrl" >
+                </div>
+            </div>
+        </div>
+        <Divider v-if="movieDetailBasic"></Divider>
+        <div class="movie-related" v-if="movieDetailRelated.goodsCount">
+            <div class="movie-related-title">
+                <div class="first">电影周边（{{movieDetailRelated.goodsCount}}）</div>
+                <div class="all">全部</div>
+            </div>
+            <div class="movie-related-content">
+                <div class="movie-related-item">
+                    <div class="related-item-image">
+                        <img :src="movieDetailRelated.goodsList[0].image" >
+                    </div>
+                    <div class="related-item-content">
+                        <div class="related-item-name">{{movieDetailRelated.goodsList[0].name}}</div>
+                        <div class="related-item-price">￥{{movieDetailRelated.goodsList[0].minSalePriceFormat}}</div>
+                    </div>
+                </div>
+                <div class="movie-related-item">
+                    <div class="related-item-image">
+                        <img :src="movieDetailRelated.goodsList[1].image" >
+                    </div>
+                    <div class="related-item-content">
+                        <div class="related-item-name">{{movieDetailRelated.goodsList[1].name}}</div>
+                        <div class="related-item-price">￥{{movieDetailRelated.goodsList[1].minSalePriceFormat}}</div>
+                    </div>
+                </div>
+                <div class="movie-related-item">
+                    <div class="related-item-image">
+                        <img :src="movieDetailRelated.goodsList[2].image" >
+                    </div>
+                    <div class="related-item-content">
+                        <div class="related-item-name">{{movieDetailRelated.goodsList[2].name}}</div>
+                        <div class="related-item-price">￥{{movieDetailRelated.goodsList[2].minSalePriceFormat}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <Divider v-if="movieDetailBasic"></Divider>
+        <div class="movie-box" v-if="movieDetailBasic">
+            <div class="movie-box-rank item">
+                <div class="number">
+                    {{movieDetailBox.ranking}}
+                </div>
+                <div class="text">
+                    票房排名
+                </div>
+            </div>
+            <div class="movie-box-account item">
+                <div class="number">
+                    {{movieDetailBox.todayBoxDes}}
+                </div>
+                <div class="text">
+                    {{movieDetailBox.todayBoxDesUnit}}
+                </div>
+            </div>
+            <div class="movie-box-realtime item">
+                <div class="number">
+                    {{movieDetailBox.totalBoxDes}}
+                </div>
+                <div class="text">
+                    {{movieDetailBox.totalBoxUnit}}
+                </div>
+            </div>
+        </div>
+        <Divider v-if="movieDetailBasic"></Divider>
+        <div class="movie-mini-comment" v-if="movieDetailHotComment.mini.total">
+            <div class="movie-comment-title">
+                <div class="first">短评</div>
+                <div class="all">全部</div>
+            </div>
+            <div class="movie-mini-comment-content" v-for="item in movieDetailHotComment.mini.list" :key="item.commentId">
+                <div class="mini-comment-divider"></div>
+                <div class="mini-comment-avatar">
+                    <img :src="item.headImg" >
+                </div>
+                <div class="mini-comment-text">
+                    <div class="text-head">
+                        <div class="text-head-nickname">{{item.nickname}}</div>
+                        <div class="text-head-rating">评{{item.rating}}</div>
+                    </div>
+                    <div class="text-content">
+                        {{item.content}}
+                    </div>
+                    <div class="text-foot">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="mini-comment-foot">查看更多{{movieDetailHotComment.mini.total}}条评论</div>
+        </div>
+        <Divider v-if="movieDetailBasic"></Divider>
+        <div class="movie-plus-comment" v-if="movieDetailBasic">
+            <div class="movie-comment-title">
+                <div class="first">影评</div>
+                <div class="all">全部</div>
+            </div>
+            <div class="movie-plus-comment-content" v-for="item in movieDetailHotComment.plus.list" :key="item.commentId">
+                <div class="plus-comment-divider"></div>
+                <div class="plus-comment-text">
+                    <div class="text-head">
+                        {{item.title}}
+                    </div>
+                    <div class="text-foot">
+                        <div class="text-foot-avatar">
+                            <img :src="item.headImg" >
+                        </div>
+                        <div class="text-foot-nickname">{{item.nickname}}</div>
+                        <div class="text-foot-rating">评{{item.rating}}分</div>
+                        <div class="text-foot-commentCount"> | {{item.total}}评论</div>
+                    </div>
+                </div>
+            </div>
+            <div class="plus-comment-foot">查看更多{{movieDetailHotComment.plus.total}}条评论</div>
+        </div>
   </div>
 </template>
 
@@ -106,7 +240,7 @@ export default {
   },
   computed:{
       ...mapGetters(['locationId','movieDetail','movieDetailBasic','movieDetailRelated',
-      'movieDetailAd','movieDetailLive'])
+      'movieDetailAd','movieDetailLive','movieDetailBox','movieDetailHotComment'])
   },
   beforeDestroy(){
       this.clearMovieDetail();

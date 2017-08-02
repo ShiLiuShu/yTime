@@ -175,4 +175,212 @@
             }
         }
     }
+    .movie-file{
+        display:flex;
+        background: white;
+        font-size:.8rem;
+        padding:.3rem 0 .3rem .6rem;
+        .movie-file-video{
+            .file-img{
+                position: relative;
+                .file-img-divider{
+                    position: absolute;
+                    top:0;
+                    right:-.5rem;
+                    width:.03rem;
+                    height:5rem;
+                    background: gray;
+                }
+                img{
+                    display: block;
+                    height:5rem;
+                    width:8rem;
+                }
+            }
+        }
+        .movie-file-image{
+            margin-left:1rem;
+            .file-img{
+            img{
+                display: block;
+                height:5rem;
+                width:5rem;
+            }
+        }
+        }
+        .file-title{
+            display: flex;
+            text-align: left;
+            align-items: center;
+            .first{
+                flex-grow: 1;
+            }
+            .all{
+                font-size:.6rem;
+            }
+        }
+        
+    }
+    .movie-box{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .item{
+            padding:.3rem .4rem;
+        }
+        .number{
+            font-size: .8rem;
+            color: orangered;
+        }
+        .text{
+            font-size: .6rem;
+            color:gray;
+        }
+    }
+    .movie-related{
+        padding:.3rem .6rem .3rem .6rem;
+        .movie-related-title{
+            display: flex;
+            align-items: center;
+            padding:.2rem 0 ;
+            .first{
+                text-align: left;
+                font-size:.8rem;
+                flex-grow: 1;
+            }
+            .all{
+                font-size:.7rem;
+            }
+        }
+        .movie-related-content{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .movie-related-item{
+                .related-item-image{
+                    border:solid .05rem silver;
+                    img{
+                        display: block;
+                        width:4rem;
+                        height:4rem;
+                    }
+                }
+                .related-item-content{
+                    padding:.1rem .2rem;
+                    width:4rem;
+                    font-size:.8rem;
+                    .related-item-price{
+                        color:orangered;
+                    }
+                    .related-item-name{
+                        white-space:nowrap; 
+                        overflow:hidden; 
+                        text-overflow:ellipsis;
+                        font-size:.6rem;
+                    }
+                }
+            }
+        }
+    }
+    .movie-comment-title{
+        padding:.2rem .6rem;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        .first{
+            flex-grow: 1;
+            font-size:.8rem;
+        }
+        .all{
+            font-size:.6rem;
+        }
+    }
+    .movie-mini-comment{
+        .movie-mini-comment-content{
+            display: flex;
+            position: relative;
+            padding:.3rem .6rem;
+            .mini-comment-divider{
+                position: absolute;
+                bottom:0;
+                left:.6rem;
+                right:.6rem;
+                height:.03rem;
+                background: silver;
+            }
+            .mini-comment-avatar{
+                img{
+                    display: block;
+                    width:2rem;
+                    height:2rem;
+                    border-radius: 50%;
+                }
+            }
+            .mini-comment-text{
+                padding: 0 .3rem;
+                font-size:.6rem;
+                flex-grow: 1;
+                text-align: left;
+                .text-head{
+                    display: flex;
+                    
+                    align-items: center;
+                    .text-head-nickname{
+                        flex-grow:1;
+                        color:gray;
+                    }
+                    .text-head-rating{
+                        color:rgb(101,157,14);
+                    }
+                }
+            }           
+        }
+        .mini-comment-foot{
+                padding:.2rem 0;
+                font-size: .8rem;
+                color:orangered;
+        }
+    }
+    .movie-plus-comment{
+        .movie-plus-comment-content{
+            display: flex;
+            position: relative;
+            padding:.3rem .6rem;
+            .plus-comment-divider{
+                position: absolute;
+                bottom:0;
+                left:.6rem;
+                right:.6rem;
+                height:.03rem;
+                background: silver;
+            }
+            .plus-comment-text{
+                img{
+                    display: block;
+                    width:1.5rem;
+                    height:1.5rem;
+                    border-radius:50%;
+                }
+                .text-head{
+                    font-size:.8rem;
+                    text-align: left;
+                    margin-bottom:.2rem;
+                }
+                .text-foot{
+                    display: flex;
+                    text-align: left;
+                    align-items: center;
+                    font-size:.5rem;
+                    div{
+                        margin-left:.2rem;
+                    }
+                }
+            }
+        }
+        .plus-comment-foot{
+                padding:.2rem 0;
+                font-size: .8rem;
+                color:orangered;
+        }
+    }
 }

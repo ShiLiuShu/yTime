@@ -36,7 +36,11 @@ const fetchMovieDetail=(locationId,movieId)=>{
     return fetch('/movie/detail.api?locationId='+locationId+'&movieId='+movieId);
 }
 
+const fetchMovieHotComment=movieId=>{
+    return fetch('movie/hotComment.api?movieId='+movieId);
+}
+
 export default{
     fetchMainPageMovies,fetchFirstPageAdvAndNews,fetchIsHotMovies,fetchIsComingMovies,
-    fetchMovieDetail
+    fetchMovieDetail,fetchMovieHotComment
 }
