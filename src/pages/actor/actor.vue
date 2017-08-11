@@ -66,6 +66,22 @@
         </div>
       </div>
       <Divider></Divider>
+      <div class="person-image">
+          <div class="person-image-title">
+            <div class="person-image-sample">影人图集</div>
+            <div class="person-image-all">全部</div>
+            <div class="person-image-image">
+                <img src="../../assets/right_arrow.png" >
+            </div>
+          </div>
+          <div class="person-image-array">
+              <div class="image-item" v-for="item in personDetail.background.images" :key="item.imageId">
+                <img :src="item.image" >
+              </div>
+          </div>
+      </div>
+      <Divider></Divider>
+      <div v-html="personDetail.advertisement.advList.count&&personDetail.advertisement.advList[0].url"></div>
   </div>
 </template>
 
@@ -80,11 +96,15 @@ export default {
       }
   },
   created(){
+    var that=this;
     this.personId=this.$route.params.personId;
     this.getPersonDetail({
         personId:this.personId,
         cityId:this.locationId
     });
+    setTimeout(function(){
+        console.log(that.personDetail.advertisement.advList[0].url);
+    },3000);
   },
   methods:{
       ...mapActions(['getPersonDetail'])
