@@ -40,7 +40,11 @@ const fetchMovieHotComment=movieId=>{
     return fetch('movie/hotComment.api?movieId='+movieId);
 }
 
+const fetchPersonDetail=(personId,cityId)=>{
+    return fetch('person/detail.api?personId='+personId+'&cityId='+cityId);
+}
+
 export default{
     fetchMainPageMovies,fetchFirstPageAdvAndNews,fetchIsHotMovies,fetchIsComingMovies,
-    fetchMovieDetail,fetchMovieHotComment
+    fetchMovieDetail,fetchMovieHotComment,fetchPersonDetail
 }

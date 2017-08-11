@@ -10,5 +10,7 @@ export default{
     movieDetailAd:state=>state.movieDetails.movieDetailAd,
     movieDetailRelated:state=>state.movieDetails.movieDetailRelated,
     movieDetailBox:state=>state.movieDetails.movieDetailBox,
-    movieDetailHotComment:state=>state.movieDetails.movieDetailHotComment
+    movieDetailHotComment:state=>state.movieDetails.movieDetailHotComment,
+
+    personDetail:state=>state.person.personDetail
 }

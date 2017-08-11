@@ -69,6 +69,13 @@ module.exports = {
         pathRewrite:{
           '^/movie/hotComment.api':'/movie/hotComment.api'
         }
+      },
+      '/person/detail.api':{
+        target:'https://ticket-api-m.mtime.cn',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/person/detail.api':'/person/detail.api'
+        }
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

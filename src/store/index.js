@@ -4,6 +4,7 @@ import * as actions from './actions'
 import * as getters from './getters'
 import movies from './module/movies'
 import movieDetails from './module/movieDetail'
+import person from './module/person'
 
 
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     getters,
     modules:{
         movies,
-        movieDetails
+        movieDetails,
+        person
     }
 })

@@ -60,7 +60,7 @@
                     <div>全部演员</div>
                 </div>
                 <div class="actor-content">
-                    <div class="actor-item" v-for="actor in movieDetailBasic.actors" :key="actor.actorId">
+                    <div class="actor-item" v-for="actor in movieDetailBasic.actors" :key="actor.actorId" @click="gotoPerson(actor.actorId)">
                         <div class="actor-item-image">
                             <img :src="actor.img" >
                         </div>
@@ -236,7 +236,11 @@ export default {
   },
   methods:{
       ...mapActions(['getMovieDetail']),
-      ...mapMutations(['clearMovieDetail'])
+      ...mapMutations(['clearMovieDetail']),
+      gotoPerson(id){
+        console.log(id);
+        this.$router.push({name:'person',params:{personId:id}});
+    }
   },
   computed:{
       ...mapGetters(['locationId','movieDetail','movieDetailBasic','movieDetailRelated',
