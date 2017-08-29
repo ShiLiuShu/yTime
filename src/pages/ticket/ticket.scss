@@ -23,6 +23,13 @@
                 flex-grow: 2;
                 display: flex;
                 justify-content: center;
+                color:gray;
+                p{
+                    margin:0 1rem;
+                }
+                p.active{
+                    color:white;
+                }
             }
             .item-img-right{
                 img{

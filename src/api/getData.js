@@ -44,7 +44,15 @@ const fetchPersonDetail=(personId,cityId)=>{
     return fetch('person/detail.api?personId='+personId+'&cityId='+cityId);
 }
 
+const fetchCinemaByCity=cityId=>{
+    return fetch('OnlineLocationCinema/OnlineCinemasByCity.api?locationId='+cityId);
+}
+
+const fetchCinemaDetail=cinemaId=>{
+    return fetch('/cinema/showtime.api?cinemaId='+cinemaId);
+}
+
 export default{
     fetchMainPageMovies,fetchFirstPageAdvAndNews,fetchIsHotMovies,fetchIsComingMovies,
-    fetchMovieDetail,fetchMovieHotComment,fetchPersonDetail
+    fetchMovieDetail,fetchMovieHotComment,fetchPersonDetail,fetchCinemaByCity,fetchCinemaDetail
 }

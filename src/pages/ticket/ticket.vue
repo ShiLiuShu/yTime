@@ -7,14 +7,14 @@
                   <div><img src="../../assets/right_arrow.png"></div>
               </div>
               <div class="item-swap">
-                  <p>电影</p>
-                  <p>影院</p>
+                  <p :class="{active:swap_active}" @click="swap(true)">电影</p>
+                  <p :class="{active:!swap_active}" @click="swap(false)">影院</p>
               </div>
               <div class="item-img-right">
                   <img src="../../assets/search.png">
               </div>
           </div>
-          <div class="ticket-head-bottom">
+          <div class="ticket-head-bottom" v-if="bottom_visible">
               <div class="ticket-head-bottom-left" :class="{active:leftActive}" @click="clickIsHot">
                   <p>正在热映</p>
               </div>
@@ -28,19 +28,22 @@
 </template>
 
 <script>
+import {mapGetters,mapActions} from 'vuex'
 export default {
   data(){
       return {
         leftActive:false,
-        rightActive:false
+        rightActive:false,
+        swap_active:true,
+        bottom_visible:true
 
       }
   },
   computed:{
-    
+    ...mapGetters(['cinemas','locationId'])
   },
-  methods:{
-      
+  methods:{   
+      ...mapActions(['getCinemasByCity']),
       clickIsHot(){
         this.leftActive=true;
         this.rightActive=false;
@@ -50,6 +53,16 @@ export default {
         this.leftActive=false;
         this.rightActive=true;
         this.$router.push('/ticket/coming');
+      },
+      swap(active){
+        this.swap_active=active;
+        if(active){
+            this.bottom_visible=true;
+            this.$router.push('/ticket/coming');
+        }else{
+            this.bottom_visible=false;
+            this.$router.push('/ticket/cinema');
+        }
       }
   },
   created(){
@@ -58,7 +71,7 @@ export default {
   },
   mounted()
   {   
-
+    //this.getCinemasByCity(this.locationId);
   }
 }
 </script>

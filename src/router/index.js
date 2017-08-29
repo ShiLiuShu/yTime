@@ -6,8 +6,10 @@ import HomeInfo from '../pages/HomeInfo/HomeInfo.vue'
 import ticket from '../pages/ticket/ticket.vue'
 import TicketHot from '../pages/TicketHot/TicketHot.vue'
 import TicketComing from '../pages/TicketComing/TicketComing.vue'
+import cinema from '../pages/Cinema/Cinema.vue'
 import movie from '../pages/movie/movie.vue'
 import person from '../pages/actor/actor.vue'
+import cinemaDetail from '../pages/cinemaDetail/cinemaDetail.vue'
 
 
 Vue.use(Router)
@@ -42,6 +44,10 @@ export default new Router({
         {
           path:'coming',
           component:TicketComing
+        },
+        {
+          path:'cinema',
+          component:cinema
         }
       ]
     },
@@ -54,6 +60,11 @@ export default new Router({
       path:'/person/:personId',
       name:'person',
       component:person
+    },
+    {
+      path:'/cinema/:cinemaId',
+      name:'cinemaDetail',
+      component:cinemaDetail
     },
     {
       path:'/',
