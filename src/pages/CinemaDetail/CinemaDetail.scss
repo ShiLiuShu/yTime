@@ -1,4 +1,5 @@
 .cinemaDetail-root{
+    overflow: hidden;
     .root-head{
         margin-top:.5rem;
         margin-left: 1rem;
@@ -28,21 +29,33 @@
         }
     }
     .root-slider{
-        width:50rem;;
-        height:5rem;
-        background: silver;
+        width:50rem;
+        height:6.5rem;
         display: flex;
-        justify-content: center;
         align-items: center;
-        overflow-x: hidden;
+        position: relative;
+        .slider-background{
+            position: absolute;
+            top:0;
+            left:0;
+            bottom:.3rem;
+            right:0;
+            background: silver;
+        }
     
         .slider-item{
-            margin-top:2rem;
-            width:10rem;
-            height:6rem;
-            
-            //transform:translateX(6rem);
-            background: red;
+            z-index: 100;
+            margin-top:.1rem;
+            width:3.6rem;
+            height:5.0rem;
+            margin-left:.8rem;
+            border:solid white .1rem;
+            transform: translateX(6rem);
+            transition: transform ease .5s;
+            &:first-child{
+                transform: translateX(6rem) scale(1.2);
+                //margin-top: 1rem;
+            }
             img{
                 display: block;
                 width:100%;
