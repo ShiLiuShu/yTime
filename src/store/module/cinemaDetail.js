@@ -10,7 +10,7 @@ const getters={
 }
 
 const actions={
-    async getCinemasByCity({commit},cinemaId){
+    async getCinemaById({commit},cinemaId){
         let data=await getData.fetchCinemaDetail(cinemaId);
         commit(types.GET_CINEMAS,data.data.data);
     }

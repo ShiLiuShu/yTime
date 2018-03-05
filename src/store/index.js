@@ -19,6 +19,7 @@ export default new Vuex.Store({
         movies,
         movieDetails,
         person,
-        cinemas
+        cinemas,
+        cinemaDetail
     }
 })

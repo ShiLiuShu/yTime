@@ -19,6 +19,9 @@ export default {
 *{
   padding:0;
   margin:0;
+  /* background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important; */
 }
 
 

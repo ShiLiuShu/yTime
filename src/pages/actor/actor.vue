@@ -33,7 +33,7 @@
           <p>{{personDetail.background.content}}</p>
       </div>
       <Divider></Divider>
-      <div class="person-hotMovie">
+      <div class="person-hotMovie" v-if="hotMovie.length">
           <div class="hotMovie-title">
               正在热映
           </div>
@@ -57,7 +57,7 @@
               <div>选座购票</div>
           </div>
       </div>
-      <Divider></Divider>
+      <Divider v-if="hotMovie.length"></Divider>
       <div class="person-awards">
         <div class="awards-sample">共获奖{{personDetail.background.totalWinAward}}次，提名{{personDetail.background.totalNominateAward}}次</div>
         <div class="awards-all">全部</div>

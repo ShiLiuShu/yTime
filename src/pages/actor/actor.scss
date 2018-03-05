@@ -1,5 +1,7 @@
 .person-root{
     padding-bottom:2.5rem;
+    //overflow-x: hidden;
+    width:100%;
     .bg{
         position: absolute;
         top:0rem;
@@ -15,7 +17,7 @@
             display: block;
             width:130%;
             height:130%;
-            filter: blur(50px);
+            filter: blur(200px);
         }
     }
 
@@ -135,6 +137,7 @@
         align-items: center;
         font-size:.8rem;
         text-align: left;
+        background: #fff;
         .awards-sample{
             flex-grow: 1;
         }
@@ -149,6 +152,7 @@
     }
     .person-image{
         padding:.3rem .4rem;
+        background: #fff;
         .person-image-title{
             display: flex;
             font-size:.8rem;
