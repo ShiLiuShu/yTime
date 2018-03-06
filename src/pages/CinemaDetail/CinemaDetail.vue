@@ -20,9 +20,22 @@
          <div class="slider-item" v-for="(item,index) in movies" :key="item.movieId" v-if="movies"
          :data-index="index" :data-loc="index" @click="_eventClick($event,index)" ref="slider">
             <img :src="item.img"/>  
+            <div class="slider-item-rating">{{item.ratingFinal}}</div>
         </div> 
         <div class="slider-background"></div>
       </div>
+      <div class="movie-title">{{currentMovie.title}}</div>
+      <div class="movie-sample">
+        <span class="movie-minute">{{currentMovie.length}}</span>
+        <span class="movie-type">{{currentMovie.type}}</span>
+        <!-- <div>{{currentMovie}}</div> -->
+         <!-- <div>{{cinemaDetail.showtimes[16]}}</div>  -->
+      </div>
+      <div class="date-title">
+        <div class="date-title-item" v-for="(item,index) in currentMovie.showDates" ref="titleitem"
+        @click="_swap(index)">{{item}}</div>
+      </div>
+      
   </div>
 </template>
 
@@ -40,26 +53,43 @@ export default {
     console.log(this.cinemaId);
     this.getCinemaById(this.cinemaId);
   },
+  updated(){
+    let self=this;
+    this.$nextTick(()=>{
+      self.$refs.titleitem[0].className+=" active-item";
+    });
+  },
   methods:{
     ...mapActions(['getCinemaById']),
-    _eventClick(event,index,ref){
+    _eventClick(event,index){
       console.log(index);
       let selectIndex=index;
       if(selectIndex==this.currentIndex){
         return;
       }
       this.currentIndex=selectIndex;
-      //alert(this.$refs.slider.length);
-      let trans_x=6-this.currentIndex*4.8;
+      let trans_x=6-this.currentIndex*4.2;
       this.$refs.slider.forEach((item,index)=>{
         if(index==this.currentIndex){
           this.$refs.slider[index].style.webkitTransform="translateX("+trans_x+"rem) scale(1.2)";
-          //this.$refs.slider[index].style.marginTop="1rem";
         }else{
           this.$refs.slider[index].style.webkitTransform="translateX("+trans_x+"rem)";
-          //this.$refs.slider[index].style.marginTop=".1rem";
         }
       });   
+      this.$refs.titleitem.forEach((item,index)=>{
+        item.className="date-title-item";
+        if(index==0){
+          item.className+=" active-item";
+        }
+      });
+    },
+    _swap(currentIndex){
+      this.$refs.titleitem.forEach((item,index)=>{
+        item.className="date-title-item";
+        if(index==currentIndex){
+          item.className+=" active-item";
+        }
+      });
     }
     // _render(){
     //   let trans_x=3.6-this.currentIndex*3.6;
@@ -73,6 +103,9 @@ export default {
     },
     movies(){
       return this.cinemaDetail.movies;
+    },
+    currentMovie(){
+      return this.cinemaDetail.movies&&this.cinemaDetail.movies[this.currentIndex];
     }
   }
 }
