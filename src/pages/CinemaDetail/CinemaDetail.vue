@@ -35,6 +35,21 @@
         <div class="date-title-item" v-for="(item,index) in currentMovie.showDates" ref="titleitem"
         @click="_swap(index)">{{item}}</div>
       </div>
+      <div class="current-hall" v-for="item in showtimesInfo.list" :key="showtimesInfo.moviekey">
+        <div class="current-time">
+          <div class="time-start">11:30</div>
+          <div class="time-end">13:30散场</div>
+        </div>
+        <div class="current-feature">
+          <div class="feature-up">
+            <span>{{item.language}}  </span>
+            <span>{{item.versionDesc}}</span>
+          </div>
+          <div class="feature-down">{{item.hall}}</div>
+        </div>
+        <div class="current-price">{{item.price}}元</div>
+        <div class="current-buy">购票</div>
+      </div>
       
   </div>
 </template>
@@ -45,7 +60,9 @@ import Divider from '../../components/Divider/Divider.vue'
 export default {
   data(){
       return {
-        currentIndex:0
+        currentIndex:0,
+        showtimes:[0],
+        singleIndex:0
       }
   },
   created(){
@@ -54,10 +71,34 @@ export default {
     this.getCinemaById(this.cinemaId);
   },
   updated(){
-    let self=this;
-    this.$nextTick(()=>{
-      self.$refs.titleitem[0].className+=" active-item";
-    });
+    
+  },
+  mounted(){
+    if(this.isReady){
+      console.log(this.movies.length);
+      let sum=0;
+      for(let i=0;i<this.movies.length-1;i++){
+        this.showtimes[i+1]=this.showtimes[i]+this.movies[i].showDates.length;
+      }
+      console.log(this.showtimes);
+      this.$nextTick(()=>{
+        this.$refs.titleitem[0].className+=" active-item";
+      });
+      
+      }
+  },
+  watch:{
+    isReady(){
+      console.log(this.movies.length);
+      let sum=0;
+      for(let i=0;i<this.movies.length-1;i++){
+        this.showtimes[i+1]=this.showtimes[i]+this.movies[i].showDates.length;
+      }
+      console.log(this.showtimes);
+      this.$nextTick(()=>{
+        this.$refs.titleitem[0].className+=" active-item";
+      });
+      }
   },
   methods:{
     ...mapActions(['getCinemaById']),
@@ -68,6 +109,7 @@ export default {
         return;
       }
       this.currentIndex=selectIndex;
+      this.singleIndex=0;
       let trans_x=6-this.currentIndex*4.2;
       this.$refs.slider.forEach((item,index)=>{
         if(index==this.currentIndex){
@@ -83,13 +125,15 @@ export default {
         }
       });
     },
-    _swap(currentIndex){
+    _swap(clickIndex){
       this.$refs.titleitem.forEach((item,index)=>{
         item.className="date-title-item";
-        if(index==currentIndex){
+        if(index==clickIndex){
           item.className+=" active-item";
         }
       });
+      this.singleIndex=clickIndex;
+      console.log(this.singleIndex);
     }
     // _render(){
     //   let trans_x=3.6-this.currentIndex*3.6;
@@ -106,6 +150,15 @@ export default {
     },
     currentMovie(){
       return this.cinemaDetail.movies&&this.cinemaDetail.movies[this.currentIndex];
+    },
+    showtimesInfo(){
+      return this.cinemaDetail.showtimes&&this.cinemaDetail.showtimes[this.showtimesIndex];
+    },
+    showtimesIndex(){
+      return this.showtimes[this.currentIndex]+this.singleIndex;
+    },
+    isReady(){
+      return this.movies;
     }
   }
 }
