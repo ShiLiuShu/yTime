@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    {{#if showRouter}}
     <router-view></router-view>
+    {{/if}}
     <foot-nav></foot-nav>
   </div>
 </template>
