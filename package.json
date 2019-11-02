@@ -2,7 +2,7 @@
   "name": "y-time",
   "version": "1.0.0",
   "description": "a vue project like mTime",
-  "author": "ShiLiuShu <940338582@qq.com>",
+  "author": "{{author}}",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
