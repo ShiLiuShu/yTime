@@ -1,7 +1,7 @@
 {
   "name": "y-time",
   "version": "1.0.0",
-  "description": "a vue project like mTime",
+  "description": "{{description}}",
   "author": "{{author}}",
   "private": true,
   "scripts": {
